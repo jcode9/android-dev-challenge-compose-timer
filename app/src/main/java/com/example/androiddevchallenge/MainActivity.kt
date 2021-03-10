@@ -24,16 +24,20 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,7 +49,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.androiddevchallenge.ui.theme.*
+import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.example.androiddevchallenge.ui.theme.backgroundColor
+import com.example.androiddevchallenge.ui.theme.purple700
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -182,7 +188,6 @@ fun MyApp() {
                 }
             }
 
-
             Box(
                 modifier = Modifier.fillMaxHeight(0.4f),
                 contentAlignment = Alignment.Center
@@ -207,7 +212,6 @@ fun MyApp() {
                         started = false
                         time = startText
                         action = startAction
-
                     } else {
                         countDownTimer =
                             object : CountDownTimer(startTime, interval) {
@@ -251,7 +255,7 @@ private fun TimerAction(text: String, onClick: () -> Unit) {
             backgroundColor = Color.White,
             contentColor = purple700
         ),
-        //shape = RoundedCornerShape(16.dp), // Type mismatch, required corner size
+        // shape = RoundedCornerShape(16.dp), // Type mismatch, required corner size
         border = BorderStroke(1.dp, purple700),
         onClick = onClick,
         modifier = Modifier
@@ -276,14 +280,14 @@ private fun TimerAction(text: String, onClick: () -> Unit) {
 @Composable
 private fun SelectMinutes(text: String, onClick: () -> Unit) {
 
-    //val clicked = remember { mutableStateOf(false) }
+    // val clicked = remember { mutableStateOf(false) }
 
     Button(
         colors = ButtonDefaults.outlinedButtonColors(
-            backgroundColor = Color.White, //if (clicked.value) Color.Blue else Color.Gray,
+            backgroundColor = Color.White, // if (clicked.value) Color.Blue else Color.Gray,
             contentColor = purple700
         ),
-        //shape = RoundedCornerShape(16.dp), // Type mismatch, required corner size
+        // shape = RoundedCornerShape(16.dp), // Type mismatch, required corner size
         border = BorderStroke(1.dp, purple700),
         onClick = onClick,
 //        onClick = {
